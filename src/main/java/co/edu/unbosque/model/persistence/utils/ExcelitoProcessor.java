@@ -14,8 +14,8 @@ public class ExcelitoProcessor {
     }
 
     public String[] read() throws IOException {
-        String line = Files.readString(Path.of(excelito.getAbsolutePath()), StandardCharsets.UTF_8);
-        return line.contains(",") ? line.trim().split(",") : line.trim().split(";");
+        var line = Files.readString(Path.of(excelito.getAbsolutePath()), StandardCharsets.UTF_8).split("\n");
+        return line;
     }
 
 }
