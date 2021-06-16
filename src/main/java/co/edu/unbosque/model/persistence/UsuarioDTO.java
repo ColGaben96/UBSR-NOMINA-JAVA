@@ -11,21 +11,21 @@ import java.io.Serializable;
 @Table(name = "usuario")
 public class UsuarioDTO implements Serializable {
     @Serial
-    private static final long serialVersionUID = 0613202101L;
+    private static final long serialVersionUID = 613202101L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long  id;
     private String nombre;
     private String username;
     private String password;
-    private int codEmpleado;
-    private int acceso_FK;
+    private long  codEmpleado;
+    private long  acceso_FK;
 
-    public int getId() {
+    public long  getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long  id) {
         this.id = id;
     }
 
@@ -53,19 +53,19 @@ public class UsuarioDTO implements Serializable {
         this.password = password;
     }
 
-    public int getCodEmpleado() {
+    public long  getCodEmpleado() {
         return codEmpleado;
     }
 
-    public void setCodEmpleado(int codEmpleado) {
+    public void setCodEmpleado(long codEmpleado) {
         this.codEmpleado = codEmpleado;
     }
 
-    public int getAcceso_FK() {
+    public long getAcceso_FK() {
         return acceso_FK;
     }
 
-    public void setAcceso_FK(int acceso_FK) {
+    public void setAcceso_FK(long  acceso_FK) {
         this.acceso_FK = acceso_FK;
     }
 }
