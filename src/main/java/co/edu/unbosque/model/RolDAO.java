@@ -1,4 +1,4 @@
 package co.edu.unbosque.model;
 
-public class RolDAO {
+public interface RolDAO {
 }
