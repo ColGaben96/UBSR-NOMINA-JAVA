@@ -49,5 +49,12 @@ public class AppController {
     public String goCSV() { return "app/cargueArchivo"; }
     @GetMapping("/Aplicacion/primerosPasos")
     public String hello() { return "app/primerosPasos"; }
-
+    @GetMapping("/Aplicacion/cargoNuevo")
+    public String addJob() { return "app/registroCargo"; }
+    @GetMapping("/Aplicacion/dependenciaNueva")
+    public String addDependency(){ return "app/registroDependencia"; }
+    @GetMapping("/Aplicacion/empleadoNuevo")
+    public String addEmpleado(){ return "app/registroEmpleado"; }
+    @GetMapping("/Aplicacion/registroNuevo")
+    public String addSucursal(){ return "app/registroSucursal"; }
 }
