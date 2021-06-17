@@ -2,10 +2,11 @@ package co.edu.unbosque.controller;
 
 import co.edu.unbosque.model.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@org.springframework.stereotype.Controller
-public class Controller {
+@Controller
+public class AppController {
 
     @Autowired
     private AccesoService acceso;
@@ -40,6 +41,13 @@ public class Controller {
     public String goLogin() { return "app/login"; }
     @GetMapping("/Aplicacion/")
     public String goDashboard() { return "app/dashboard"; }
+    @GetMapping("/Aplicacion/Mi-Cuenta")
+    public String goConfig() { return "app/config"; }
     @GetMapping("/Aplicacion/signup")
     public String goSignup() { return "app/signup"; }
+    @GetMapping("/Aplicacion/cargueArchivo")
+    public String goCSV() { return "app/cargueArchivo"; }
+    @GetMapping("/Aplicacion/primerosPasos")
+    public String hello() { return "app/primerosPasos"; }
+
 }
