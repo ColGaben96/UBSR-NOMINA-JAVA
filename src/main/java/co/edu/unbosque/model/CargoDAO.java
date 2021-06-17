@@ -1,4 +1,7 @@
 package co.edu.unbosque.model;
 
-public interface CargoDAO {
+import co.edu.unbosque.model.persistence.CargoDTO;
+import org.springframework.data.repository.CrudRepository;
+
+public interface CargoDAO extends CrudRepository<CargoDTO, Long> {
 }

@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Table(name = "empresa")
 public class EmpresaDTO implements Serializable {
     @Serial
-    private static final long serialVersionUID = 613202102L;
+    private static final long serialVersionUID = 613202103L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

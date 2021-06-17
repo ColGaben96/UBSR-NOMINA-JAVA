@@ -1,4 +1,7 @@
 package co.edu.unbosque.model;
 
-public interface EmpleadoDAO {
+import co.edu.unbosque.model.persistence.EmpleadoDTO;
+import org.springframework.data.repository.CrudRepository;
+
+public interface EmpleadoDAO extends CrudRepository<EmpleadoDTO, Long> {
 }

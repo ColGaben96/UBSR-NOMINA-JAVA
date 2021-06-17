@@ -18,14 +18,16 @@ public class UsuarioDTO implements Serializable {
     private String nombre;
     private String username;
     private String password;
-    private long  codEmpleado;
-    private long  acceso_FK;
+    private long codEmpleado;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", nullable = false, updatable = false, insertable = false)
+    private AccesoDTO acceso_FK;
 
-    public long  getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(long  id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -53,7 +55,7 @@ public class UsuarioDTO implements Serializable {
         this.password = password;
     }
 
-    public long  getCodEmpleado() {
+    public long getCodEmpleado() {
         return codEmpleado;
     }
 
@@ -61,11 +63,11 @@ public class UsuarioDTO implements Serializable {
         this.codEmpleado = codEmpleado;
     }
 
-    public long getAcceso_FK() {
+    public AccesoDTO getAcceso_FK() {
         return acceso_FK;
     }
 
-    public void setAcceso_FK(long  acceso_FK) {
+    public void setAcceso_FK(AccesoDTO acceso_FK) {
         this.acceso_FK = acceso_FK;
     }
 }
