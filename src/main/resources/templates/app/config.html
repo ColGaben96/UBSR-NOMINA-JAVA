@@ -9,7 +9,24 @@
   <script src="https://kit.fontawesome.com/302a1eb3e6.js" crossorigin="anonymous"></script>
 </head>
 <header th:replace="layout/loggedHeader"></header>
-<body>
-
+<body th:object="${usuario}">
+<div class="container">
+  <h1 style="text-align: center">Tu Cuenta</h1>
+  <div class="container-fluid">
+    <form method="post" th:action="@{/updateUser}">
+      <hr>
+      <h3>Tus datos</h3>
+      <label for="name">Nombre</label>
+      <input id="name" name="nombre" type="text">
+      <label for="username">Correo</label>
+      <input id="username" name="username" type="text">
+      <label for="password">Contraseña</label>
+      <input id="password" name="password" type="password">
+      <hr>
+      <input type="submit" class="btn btn-primary" value="Actualizar Datos">
+      <input type="submit" class="btn btn-outline-secondary" value="Cancelar" th:action="@{/Aplicacion/}">
+    </form>
+  </div>
+</div>
 </body>
 </html>

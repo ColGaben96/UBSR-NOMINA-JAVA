@@ -35,6 +35,6 @@ public class RolImpl implements RolService {
     @Override
     @Transactional(readOnly = true)
     public RolDTO findRol(RolDTO Rol) {
-        return this.Rol.findById(Rol.getId()).orElse(null);
+        return this.Rol.findById(Rol.getIdRol()).orElse(null);
     }
 }

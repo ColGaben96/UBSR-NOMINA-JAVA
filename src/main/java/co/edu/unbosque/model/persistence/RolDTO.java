@@ -14,18 +14,15 @@ public class RolDTO implements Serializable {
     private static final long serialVersionUID = 613202100L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long idRol;
     private String nombre;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", nullable = false, updatable = false, insertable = false)
-    private UsuarioDTO usuario_FK;
 
-    public long getId() {
-        return id;
+    public long getIdRol() {
+        return idRol;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setIdRol(long id) {
+        this.idRol = id;
     }
 
     public String getNombre() {
@@ -34,13 +31,5 @@ public class RolDTO implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public UsuarioDTO getUsuario_FK() {
-        return usuario_FK;
-    }
-
-    public void setUsuario_FK(UsuarioDTO usuario_FK) {
-        this.usuario_FK = usuario_FK;
     }
 }

@@ -9,7 +9,41 @@
   <script src="https://kit.fontawesome.com/302a1eb3e6.js" crossorigin="anonymous"></script>
 </head>
 <header th:replace="layout/loggedHeader"></header>
-<body>
-
+<body th:object="${usuario}">
+  <div class="container">
+    <h1 style="text-align: center" th:text="Hola ${usuario.nombre}"></h1>
+    <p style="text-align: center; font-style: italic">Queremos que vivas la mejor experiencia. Por eso te vamos a hacer unas preguntas</p>
+    <form method="post" th:action="@{/newEnterprise}">
+    <div class="container-fluid">
+      <div th:object="${empresa}">
+        <hr>
+        <h3>Datos de tu empresa</h3>
+        <label for="owner">¿Eres quien figura como representante legal de la empresa?</label>
+        <form id="owner" name="owner">
+          <input type="radio" class="form-control" value="Si">
+          <input type="radio" class="form-control" value="No">
+        </form>
+        <label for="name">Nombre de la empresa</label>
+        <input type="text" id="name" name="nombre">
+        <label for="address">Dirección de la empresa</label>
+        <input type="text" id="address" name="direccion">
+        <label for="phone">Teléfono de la empresa</label>
+        <input type="text" id="phone" name="telefono">
+        <label for="email">Correo de la empresa</label>
+        <input type="text" id="email" name="correo">
+      </div>
+      <div>
+        <hr>
+        <h3>Cargue de empleados</h3>
+        <label for="csvload">¿Deseas cargar los empleados vía archivo plano?</label>
+        <input type="submit" th:action="@{/Aplicacion/cargueArchivo}" class="btn btn-primary" id="csvload" value="Ir al cargue de empleados">
+      </div>
+      <div>
+        <h3>Finalizar Registro</h3>
+        <input type="submit" th:action="@{/Aplicacion/}" class="btn btn-primary" value="Ir al dashboard">
+      </div>
+    </div>
+    </form>
+  </div>
 </body>
 </html>

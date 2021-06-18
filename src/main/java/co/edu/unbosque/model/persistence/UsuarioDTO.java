@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,10 +19,6 @@ public class UsuarioDTO implements Serializable {
     private String nombre;
     private String username;
     private String password;
-    private long codEmpleado;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", nullable = false, updatable = false, insertable = false)
-    private AccesoDTO acceso_FK;
 
     public long getId() {
         return id;
@@ -53,21 +50,5 @@ public class UsuarioDTO implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public long getCodEmpleado() {
-        return codEmpleado;
-    }
-
-    public void setCodEmpleado(long codEmpleado) {
-        this.codEmpleado = codEmpleado;
-    }
-
-    public AccesoDTO getAcceso_FK() {
-        return acceso_FK;
-    }
-
-    public void setAcceso_FK(AccesoDTO acceso_FK) {
-        this.acceso_FK = acceso_FK;
     }
 }

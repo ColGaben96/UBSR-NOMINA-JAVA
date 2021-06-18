@@ -9,7 +9,14 @@
   <script src="https://kit.fontawesome.com/302a1eb3e6.js" crossorigin="anonymous"></script>
 </head>
 <header th:replace="layout/loggedHeader"></header>
-<body>
+<body th:object="${usuario}">
+<div class="container">
+  <h1 style="text-align: center" th:text="Hola ${usuario.nombre}"></h1>
+  <div class="container-fluid">
+    <h3>Empleados</h3>
+    <h3>Total Nómina</h3>
+  </div>
+</div>
 
 </body>
 </html>
