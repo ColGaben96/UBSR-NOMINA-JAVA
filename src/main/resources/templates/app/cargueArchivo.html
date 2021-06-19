@@ -8,7 +8,18 @@
     <script type="javascript" src="js/jquery-3.6.0.min.js"></script>
     <script src="https://kit.fontawesome.com/302a1eb3e6.js" crossorigin="anonymous"></script>
 </head>
-<header th:replace="layout/loggedHeader"></header>
+<header th:replace="layout/headerTemplate"></header>
 <body>
+    <div class="container">
+        <h1 style="text-align: center">Cargar Empleados por Archivo Plano</h1>
+        <div class="container-fluid">
+            <form method="post" th:action="@{/uploadAndCreate}">
+                <input type="file" class="form-label" id="input" name="input">
+                <p>Solo archivos .csv</p>
+                <hr>
+                <input type="submit" class="btn btn-outline-primary" value="Cargar archivo y crear empleados">
+            </form>
+        </div>
+    </div>
 </body>
 </html>

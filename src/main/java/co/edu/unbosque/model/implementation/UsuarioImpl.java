@@ -29,17 +29,19 @@ public class UsuarioImpl implements UsuarioService {
 
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        UsuarioDTO usuario = this.usuario.findByUsername(s);
-        if (usuario == null) {
-            throw new UsernameNotFoundException(s);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UsuarioDTO usuario = this.usuario.findByUsername(username);
+
+        if(usuario == null){
+            throw new UsernameNotFoundException(username);
         }
 
         var roles = new ArrayList<GrantedAuthority>();
 
-        for (RolDTO rol : new RolImpl().listAll()) {
+        for(RolDTO rol: usuario.getRoles()){
             roles.add(new SimpleGrantedAuthority(rol.getNombre()));
         }
+
         return new User(usuario.getUsername(), usuario.getPassword(), roles);
     }
 

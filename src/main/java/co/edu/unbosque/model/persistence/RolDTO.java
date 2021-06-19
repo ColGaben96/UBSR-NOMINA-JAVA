@@ -14,15 +14,15 @@ public class RolDTO implements Serializable {
     private static final long serialVersionUID = 613202100L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idRol;
+    private long id_rol;
     private String nombre;
 
     public long getIdRol() {
-        return idRol;
+        return id_rol;
     }
 
     public void setIdRol(long id) {
-        this.idRol = id;
+        this.id_rol = id;
     }
 
     public String getNombre() {

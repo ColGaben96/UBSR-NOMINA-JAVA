@@ -1,8 +1,6 @@
 package co.edu.unbosque.controller;
 
-import co.edu.unbosque.model.persistence.EmpresaDTO;
-import co.edu.unbosque.model.persistence.RolDTO;
-import co.edu.unbosque.model.persistence.UsuarioDTO;
+import co.edu.unbosque.model.persistence.*;
 import co.edu.unbosque.model.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -45,56 +43,40 @@ public class AppController {
     public String goIndex() {
         return "index";
     }
-    @GetMapping("/login")
-    public String goLogin(Model model, UsuarioDTO usuario) {
-        model.addAttribute("usuario", usuario);
-        return "app/login";
+    @GetMapping("/reportes")
+    public String goReports() {
+        return "app/reportes";
     }
-    @GetMapping("/Aplicacion/")
-    public String goDashboard(Model model, UsuarioDTO usuario) {
-        model.addAttribute("usuario", usuario);
-        return "app/dashboard";
-    }
-    @GetMapping("/Aplicacion/Mi-Cuenta")
-    public String goConfig(Model model, UsuarioDTO usuario) {
-        model.addAttribute("usuario", usuario);
-        return "app/config";
-    }
-    @GetMapping("/signup")
-    public String goSignup(Model model, UsuarioDTO usuario) {
-        model.addAttribute("usuario", usuario);
-        return "app/signup";
-    }
-    @GetMapping("/Aplicacion/cargueArchivo")
-    public String goCSV(Model model, UsuarioDTO usuario) {
-        model.addAttribute("usuario", usuario);
+    @GetMapping("/cargueArchivo")
+    public String loadFiles() {
         return "app/cargueArchivo";
     }
-    @GetMapping("/Aplicacion/primerosPasos")
-    public String hello(Model model, UsuarioDTO usuario, EmpresaDTO empresa) {
-        model.addAttribute("usuario", usuario);
-        model.addAttribute("empresa", empresa);
-        return "app/primerosPasos";
+    @GetMapping("/reporte1")
+    public String report1(Model model) {
+        var empleados = empleado.listAll();
+        var sucursales = sucursal.listAll();
+        model.addAttribute("empleados", empleados);
+        model.addAttribute("sucursales", sucursales);
+        return "reports/rep1";
     }
-    @GetMapping("/Aplicacion/cargoNuevo")
-    public String addJob() {
-        return "app/registroCargo";
+    @GetMapping("/reporte2")
+    public String report2() {
+        return "reports/rep2";
     }
-    @GetMapping("/Aplicacion/dependenciaNueva")
-    public String addDependency(){
-        return "app/registroDependencia";
+    @GetMapping("/reporte3")
+    public String report3() {
+        return "reports/rep3";
     }
-    @GetMapping("/Aplicacion/empleadoNuevo")
-    public String addEmpleado(){
-        return "app/registroEmpleado";
+    @GetMapping("/reporte4")
+    public String report4() {
+        return "reports/rep4";
     }
-    @GetMapping("/Aplicacion/registroNuevo")
-    public String addSucursal(){
-        return "app/registroSucursal";
+    @GetMapping("/reporte5")
+    public String report5() {
+        return "reports/rep5";
     }
-    @PostMapping("/newUser")
-    public String newUser(UsuarioDTO usuario) {
-        this.usuario.save(usuario);
-        return "redirect:/Aplicacion/primerosPasos";
+    @PostMapping("/uploadAndCreate")
+    public String upload() {
+        return "redirect:/reportes";
     }
 }

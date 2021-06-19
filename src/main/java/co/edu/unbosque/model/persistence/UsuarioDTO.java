@@ -19,6 +19,9 @@ public class UsuarioDTO implements Serializable {
     private String nombre;
     private String username;
     private String password;
+    @OneToMany
+    @JoinColumn(name = "id_rol")
+    private List<RolDTO> roles;
 
     public long getId() {
         return id;
@@ -50,5 +53,13 @@ public class UsuarioDTO implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<RolDTO> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<RolDTO> roles) {
+        this.roles = roles;
     }
 }

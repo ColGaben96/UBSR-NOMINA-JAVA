@@ -37,16 +37,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-       http.httpBasic(Customizer.withDefaults())
-               .formLogin().loginPage("/login").permitAll()
-       .and()
-       .authorizeRequests().antMatchers("/Aplicacion/**").authenticated();
-    }
-
-    @Bean
-    public HttpSessionEventPublisher httpSessionEventPublisher() {
-        return new HttpSessionEventPublisher();
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+                .withUser("admin")
+                .password("$2a$10$2PnuFmUp8lFYJ2BATix99uCezNAhGzdyqTiQEzRdr6XYmXP9Atxeu")
+                .roles("ADMIN", "USER");
     }
 
 }
